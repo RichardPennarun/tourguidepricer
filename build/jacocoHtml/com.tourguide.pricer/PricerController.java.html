@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PricerController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuidePricer</a> &gt; <a href="index.source.html" class="el_package">com.tourguide.pricer</a> &gt; <span class="el_source">PricerController.java</span></div><h1>PricerController.java</h1><pre class="source lang-java linenums">package com.tourguide.pricer;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tourguide.pricer.model.TripDeal;
+import com.tourguide.pricer.model.TripRequest;
+import com.tourguide.pricer.service.PricerService;
+
+
+@RestController
+<span class="fc" id="L16">public class PricerController {</span>
+
+	@Autowired
+	PricerService pricerService;
+
+	/*
+	 * Post - Get a list of trip deals for an attraction 
+	 * and user preferences along in a trip request
+	 * @param An object tripRequest
+	 * @return A list of objects TripDeal
+	 */
+	@PostMapping(&quot;/getTripDeals&quot;)
+	public List&lt;TripDeal&gt; getTripDeals(@RequestBody TripRequest tripRequest) {
+<span class="nc" id="L29">		List&lt;TripDeal&gt; tripDeals = pricerService.getTripDeals(tripRequest);</span>
+<span class="nc" id="L30">		return tripDeals;</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
